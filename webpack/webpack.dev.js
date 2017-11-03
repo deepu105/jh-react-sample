@@ -11,7 +11,7 @@ const commonConfig = require('./webpack.common.js');
 const ENV = 'development';
 
 module.exports = webpackMerge(commonConfig({ env: ENV }), {
-  devtool: 'eval-source-map',
+  devtool: 'cheap-module-source-map', // https://reactjs.org/docs/cross-origin-errors.html
   entry: [
     'react-hot-loader/patch',
     './src/main/webapp/app/index'
@@ -53,27 +53,29 @@ module.exports = webpackMerge(commonConfig({ env: ENV }), {
     },
     hot: true,
     contentBase: './target/www',
-    proxy: [
-      {
-        context: [
-          '/api', '/management', '/swagger-resources', '/v2/api-docs', '/h2-console'
-        ],
-        target: 'http://127.0.0.1:8080',
-        secure: false
-      }, {
-        context: ['/websocket'],
-        target: 'ws://127.0.0.1:8080',
-        ws: true
-      }
-    ]
+    proxy: [{
+      context: [
+        /* jhipster-needle-add-entity-to-webpack - JHipster will add entity api paths here */
+        '/api',
+        '/management',
+        '/swagger-resources',
+        '/v2/api-docs',
+        '/h2-console',
+        '/auth'
+      ],
+      target: 'http://127.0.0.1:8080',
+      secure: false
+    }],
+    watchOptions: {
+      ignored: /node_modules/
+    }
   },
   plugins: [
     new BrowserSyncPlugin({
       host: 'localhost',
-      port: 8000,
+      port: 9000,
       proxy: {
-        target: 'http://localhost:9060',
-        ws: true
+        target: 'http://localhost:9060'
       }
     }, {
         reload: false

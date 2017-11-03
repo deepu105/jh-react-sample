@@ -56,7 +56,6 @@ spring:
 liquibase:
     contexts: test
 
-
 security:
     basic:
         enabled: false
@@ -93,7 +92,7 @@ jhipster:
     security:
         authentication:
             jwt:
-                secret: 35b52efa7cb2365e0c3da3515fd55fe130a86fa2
+                secret: 1ee93086c7c014db110566bfd68e760c88f33065
                 # Token is valid 24 hours
                 token-validity-in-seconds: 86400
     metrics: # DropWizard Metrics configuration, used by MetricsConfiguration
