@@ -36,6 +36,7 @@ export class App extends React.Component<IAppProps, {}> {
       <Router>
         <div className="app-container" style={{ paddingTop }}>
           <Header
+            isAuthenticated={this.props.isAuthenticated}
             currentLocale={this.props.currentLocale}
             onLocaleChange={this.props.setLocale}
           />
