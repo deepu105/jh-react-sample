@@ -6,6 +6,12 @@ import {
   Navbar, Nav, NavItem, NavLink, NavbarToggler, NavbarBrand, Collapse,
   UncontrolledNavDropdown, DropdownToggle, DropdownMenu, DropdownItem
 } from 'reactstrap';
+import {
+  FaHome, FaThList, FaUserPlus, FaUser, FaFlag, FaHeart,
+  FaList, FaTasks, FaDashboard, FaBook, FaWrench, FaSignIn, FaSignOut,
+  FaClockO
+} from 'react-icons/lib/fa';
+
 import { NavLink as Link } from 'react-router-dom';
 import LoadingBar from 'react-redux-loading-bar';
 
@@ -15,6 +21,7 @@ import appConfig from '../../../config/constants';
 const devEnv = process.env.NODE_ENV === 'development';
 
 export interface IHeaderProps {
+  // isAuthenticated: boolean;
   currentLocale: string;
   onLocaleChange: Function;
 }
@@ -27,7 +34,6 @@ const BrandIcon = props => (
   </div>
 );
 export class Header extends React.Component<IHeaderProps, { menuOpen: boolean }> {
-
   constructor(props) {
     super(props);
     this.state = {
@@ -50,6 +56,7 @@ export class Header extends React.Component<IHeaderProps, { menuOpen: boolean }>
   }
 
   render() {
+    const { currentLocale } = this.props;
     return (
       <div id="app-header">
         {this.renderDevRibbon()}
@@ -64,14 +71,15 @@ export class Header extends React.Component<IHeaderProps, { menuOpen: boolean }>
           <Collapse isOpen={this.state.menuOpen} navbar>
             <Nav className="ml-auto" navbar>
               <NavItem>
-                <NavLink tag={Link} to="/">
-                  {/* <i className="fa fa-home" aria-hidden="true"/> */}
+                <NavLink tag={Link} to="/" className="d-flex align-items-center">
+                  <FaHome />
                   <span>Home</span>
                 </NavLink>
               </NavItem>
               <UncontrolledNavDropdown>
-                <DropdownToggle nav caret>
-                  Entities
+                <DropdownToggle nav caret className="d-flex align-items-center">
+                  <FaThList />
+                  <span>Entities</span>
                 </DropdownToggle>
                 <DropdownMenu right>
                   <DropdownItem divider/>
@@ -79,38 +87,42 @@ export class Header extends React.Component<IHeaderProps, { menuOpen: boolean }>
               </UncontrolledNavDropdown>
               {devEnv ?
                 <UncontrolledNavDropdown>
-                  <DropdownToggle nav caret>
-                    Administration
+                  <DropdownToggle nav caret className="d-flex align-items-center">
+                    <FaUserPlus />
+                    <span>Administration</span>
                   </DropdownToggle>
-                  <DropdownMenu right>
-                    <DropdownItem tag={Link} to="/admin/health">Health</DropdownItem>
-                    <DropdownItem tag={Link} to="/admin/metrics">Metrics</DropdownItem>
-                    <DropdownItem tag={Link} to="/admin/configuration">Configuration</DropdownItem>
-                    <DropdownItem tag={Link} to="/admin/docs">API Docs</DropdownItem>
+                  <DropdownMenu right style={{ width: '120%' }}>
+                    <DropdownItem tag={Link} to="/admin/user-management"><FaUser /> User Management</DropdownItem>
+                    <DropdownItem tag={Link} to="/admin/health"><FaHeart /> Health</DropdownItem>
+                    <DropdownItem tag={Link} to="/admin/metrics"><FaDashboard /> Metrics</DropdownItem>
+                    <DropdownItem tag={Link} to="/admin/configuration"><FaList /> Configuration</DropdownItem>
+                    <DropdownItem tag={Link} to="/admin/docs"><FaBook /> API Docs</DropdownItem>
                   </DropdownMenu>
                 </UncontrolledNavDropdown> : null
               }
-              <UncontrolledNavDropdown>
-                <DropdownToggle nav caret>
-                  Account
-                </DropdownToggle>
-                <DropdownMenu right>
-                  <DropdownItem tag={Link} to="/account/settings">Settings</DropdownItem>
-                  <DropdownItem tag={Link} to="/account/password">Password</DropdownItem>
-                  <DropdownItem tag={Link} to="/logout">Logout</DropdownItem>
-                  <DropdownItem tag={Link} to="/login">Login</DropdownItem>
-                </DropdownMenu>
-              </UncontrolledNavDropdown>
               { locales.length > 1 ?
                 <UncontrolledNavDropdown>
-                  <DropdownToggle nav caret>
-                    {this.props.currentLocale.toUpperCase()}
+                  <DropdownToggle nav caret className="d-flex align-items-center">
+                    <FaFlag />
+                    <span>{currentLocale.toUpperCase()}</span>
                   </DropdownToggle>
                   <DropdownMenu right>
                     {locales.map(lang => <DropdownItem key={lang} value={lang} onClick={this.handleLocaleChange}>{lang.toUpperCase()}</DropdownItem>)}
                   </DropdownMenu>
                 </UncontrolledNavDropdown> : null
               }
+              <UncontrolledNavDropdown>
+                <DropdownToggle nav caret className="d-flex align-items-center">
+                  <FaUser />
+                  <span>Account</span>
+                </DropdownToggle>
+                <DropdownMenu right>
+                  <DropdownItem tag={Link} to="/account/settings"><FaWrench /> Settings</DropdownItem>
+                  <DropdownItem tag={Link} to="/account/password"><FaClockO /> Password</DropdownItem>
+                  <DropdownItem tag={Link} to="/logout"><FaSignOut /> Logout</DropdownItem>
+                  <DropdownItem tag={Link} to="/login"><FaSignIn /> Login</DropdownItem>
+                </DropdownMenu>
+              </UncontrolledNavDropdown>
             </Nav>
           </Collapse>
         </Navbar>
@@ -122,29 +134,6 @@ export class Header extends React.Component<IHeaderProps, { menuOpen: boolean }>
 export default Header;
 
 // export default class Header extends Component {
-//   static propTypes = {
-//     isAuthenticated: PropTypes.bool.isRequired,
-//     currentLocale: PropTypes.string.isRequired,
-//     handleLogout: PropTypes.func.isRequired,
-//     onLocaleChange: PropTypes.func.isRequired
-//   };
-
-//   constructor(props) {
-//     super(props);
-//     this.state = {
-//       sidebarOpen: false
-//     };
-//   }
-////   handleChange = (event, index, language) => {
-//     this.props.onLocaleChange(language);
-//   };
-//
-//   toggleSideBar = () => {
-//     this.setState({
-//       sidebarOpen: !this.state.sidebarOpen
-//     });
-//   }
-
 //   render() {
 //     const { currentLocale, isAuthenticated, handleLogout } = this.props;
 //     const menuListStyle = { marginLeft: 18 };

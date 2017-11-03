@@ -35,7 +35,7 @@ export class App extends React.Component<IAppProps, {}> {
     return (
       <Router>
         <div className="app-container" style={{ paddingTop }}>
-          <Header 
+          <Header
             currentLocale={this.props.currentLocale}
             onLocaleChange={this.props.setLocale}
           />
