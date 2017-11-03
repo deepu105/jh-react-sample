@@ -94,7 +94,7 @@ export class SettingsPage extends React.Component<IUserSettingsProps, IUserSetti
                   {locales.map(lang => <option value={lang} key={lang}>{lang}</option>)}
                 </Input>
               </FormGroup>
-               <Button type="submit" color="success" onClick={this.saveSettings}>Save</Button>
+              <Button type="submit" color="success" onClick={this.saveSettings}>Save</Button>
             </Form>
       </div>
     );

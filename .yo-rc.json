@@ -22,7 +22,7 @@
     "buildTool": "maven",
     "enableSocialSignIn": false,
     "enableSwaggerCodegen": false,
-    "jwtSecretKey": "1ee93086c7c014db110566bfd68e760c88f33065",
+    "jwtSecretKey": "373724ecc48debc2686e4bbc6de151f52c19b725",
     "clientFramework": "react",
     "useSass": false,
     "clientPackageManager": "yarn",
@@ -33,7 +33,7 @@
     "nativeLanguage": "en",
     "languages": [
       "en",
-      "ar-ly"
+      "fr"
     ]
   }
 }

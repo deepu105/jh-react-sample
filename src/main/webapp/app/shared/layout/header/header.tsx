@@ -18,7 +18,6 @@ export interface IHeaderProps {
   currentLocale: string;
   onLocaleChange: Function;
 }
-
 const BrandIcon = props => (
   <div {...props} className="brand-icon">
     <img
