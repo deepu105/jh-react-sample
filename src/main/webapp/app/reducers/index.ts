@@ -5,13 +5,13 @@ import locale from './locale';
 import layout from './layout';
 import authentication from './authentication';
 import administration from './administration';
-import systemProperties from './system-property';
+import userManagement from './user-management';
 
 export default combineReducers({
   authentication,
   locale,
   layout,
   administration,
-  systemProperties,
+  userManagement,
   loadingBar
 });
