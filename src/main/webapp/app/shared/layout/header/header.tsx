@@ -116,7 +116,7 @@ export class Header extends React.Component<IHeaderProps, { menuOpen: boolean }>
                     <FaUserPlus />
                     <span>Administration</span>
                   </DropdownToggle>
-                  <DropdownMenu right style={{ width: '120%' }}>
+                  <DropdownMenu right>
                     {adminMenuItems}
                   </DropdownMenu>
                 </UncontrolledNavDropdown>
