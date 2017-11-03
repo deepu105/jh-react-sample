@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { Translate } from 'react-jhipster';
 import { Table } from 'reactstrap';
 import { FaEye, FaRefresh } from 'react-icons/lib/fa';
+
 import HealthModal from './health-modal';
 import { systemHealth } from '../../../reducers/administration';
 

@@ -99,7 +99,7 @@ export class Home extends React.Component<IHomeProp, IHomeState> {
           </ul>
 
           <p>
-            <span>If you like JHipster, do not forget to give us a star on </span>
+            <Translate contentKey="home.like">If you like JHipster, do not forget to give us a star on</Translate>
             <a href="https://github.com/jhipster/generator-jhipster" target="_blank" rel="noopener noreferrer">Github</a>!
           </p>
         </div>

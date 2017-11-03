@@ -3,7 +3,8 @@ import * as React from 'react';
 import { connect } from 'react-redux';
 import { Table, Progress } from 'reactstrap';
 import { Translate } from 'react-jhipster';
-import { FaRefresh, FaEye } from 'react-icons/lib/fa';
+import { FaEye, FaRefresh } from 'react-icons/lib/fa';
+
 import MetricsModal from './metrics-modal';
 import { systemMetrics, systemThreadDump } from '../../../reducers/administration';
 
