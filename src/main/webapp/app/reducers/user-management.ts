@@ -81,7 +81,8 @@ const apiUrl = '/api/users';
 // Actions
 export const getUsers: ICrudGetAction = (page, size, sort) => ({
   type: ACTION_TYPES.FETCH_USERS,
-  payload: axios.get(`${apiUrl}?page=${page}&size=${size}&sort=${sort}&cacheBuster=${new Date().getTime()}`)
+  // payload: axios.get(`${apiUrl}?page=${page}&size=${size}&sort=${sort}&cacheBuster=${new Date().getTime()}`)
+  payload: axios.get(`${apiUrl}?cacheBuster=${new Date().getTime()}`)
 });
 
 export const getUser: ICrudGetAction = id => {
