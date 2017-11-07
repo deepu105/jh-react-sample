@@ -5941,9 +5941,9 @@ react-icons@2.2.7:
   dependencies:
     react-icon-base "2.1.0"
 
-react-jhipster@0.1.1:
-  version "0.1.1"
-  resolved "https://registry.yarnpkg.com/react-jhipster/-/react-jhipster-0.1.1.tgz#706403ebcd3849c6fc78426f191960d8b9437422"
+react-jhipster@0.1.2:
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/react-jhipster/-/react-jhipster-0.1.2.tgz#d6ebeb30cfd9fec81c6eecc6fa6c13437b827390"
   dependencies:
     sanitize-html "^1.14.1"
 

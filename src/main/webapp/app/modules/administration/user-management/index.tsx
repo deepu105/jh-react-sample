@@ -12,9 +12,9 @@ const Routes = ({ match }) => (
     <Switch>
       <Route exact path={match.url} component={UserManagement} />
       <Route exact path={`${match.url}/new`} component={UserManagementModel} />
-      <Route path={`${match.url}/:login`} component={UserManagementDetail} />
-      <Route path={`${match.url}/:login/edit`} component={UserManagementModel} />
-      <Route path={`${match.url}/:login/delete`} component={UserManagementDeleteModel} />
+      <Route exact path={`${match.url}/:login/delete`} component={UserManagementDeleteModel} />
+      <Route exact path={`${match.url}/:login/edit`} component={UserManagementModel} />
+      <Route exact path={`${match.url}/:login`} component={UserManagementDetail} />
     </Switch>
   </div>
 );

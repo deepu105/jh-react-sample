@@ -97,13 +97,13 @@ export class UserManagement extends React.Component<IUserManagementProps, undefi
                         <FaEye/> <span className="d-none d-md-inline" ><Translate contentKey="entity.action.view" /></span>
                       </Button>
                       <Button
-                        tag={Link} to={`${match.url}/${user.id}/edit`}
+                        tag={Link} to={`${match.url}/${user.login}/edit`}
                         color="primary" size="sm"
                       >
                         <FaPencil/> <span className="d-none d-md-inline"><Translate contentKey="entity.action.edit" /></span>
                       </Button>
                       <Button
-                        tag={Link} to={`${match.url}/${user.id}/delete`}
+                        tag={Link} to={`${match.url}/${user.login}/delete`}
                         color="danger" size="sm" disabled={account.login === user.login}
                       >
                         <FaTrash/> <span className="d-none d-md-inline"><Translate contentKey="entity.action.delete" /></span>

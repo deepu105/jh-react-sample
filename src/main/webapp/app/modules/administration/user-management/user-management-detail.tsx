@@ -9,7 +9,6 @@ import { ICrudGetAction } from '../../../shared/model/redux-action.type';
 import { getUser } from '../../../reducers/user-management';
 
 export interface IUserManagementDetailProps {
-  isFetching?: boolean;
   getUser: ICrudGetAction;
   user: any;
   match: any;

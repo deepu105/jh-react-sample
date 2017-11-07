@@ -11,7 +11,6 @@ export interface IHealthPageProps {
   isFetching?: boolean;
   systemHealth: Function;
   health: any;
-  history: any;
   systemHealthInfo: any;
 }
 
@@ -36,10 +35,12 @@ export class HealthPage extends React.Component<IHealthPageProps, any> {
   }
 
   getSystemHealthInfo = (name, healthObject) => () => {
-    healthObject.name = name;
     this.setState({
       showModal: true,
-      healthObject
+      healthObject: {
+        ...healthObject,
+        name
+      }
     });
   }
 
