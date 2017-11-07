@@ -52,6 +52,6 @@ const MetricsModal = ({ handleClose, showModal, threadDump }) => (
   <ModalFooter>
     <Button color="primary" onClick={handleClose}>Close</Button>
   </ModalFooter>
-</Modal>
-);
+</Modal>);
+
 export default MetricsModal;
