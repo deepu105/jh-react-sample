@@ -1,5 +1,7 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
+import { Route, Link } from 'react-router-dom';
+import { Button } from 'reactstrap';
 import { Translate } from 'react-jhipster';
 import { FaPlus, FaEye, FaPencil, FaTrash } from 'react-icons/lib/fa';
 
@@ -7,12 +9,11 @@ import { ICrudGetAction } from '../../../shared/model/redux-action.type';
 import { getUsers } from '../../../reducers/user-management';
 
 export interface IUserManagementProps {
-  isFetching?: boolean;
   getUsers: ICrudGetAction;
   users: any[];
   account: any;
+  match: any;
 }
-
 export class UserManagement extends React.Component<IUserManagementProps, undefined> {
 
   constructor(props) {
@@ -23,21 +24,15 @@ export class UserManagement extends React.Component<IUserManagementProps, undefi
     this.props.getUsers();
   }
 
-  getUserList = () => {
-    if (!this.props.isFetching) {
-      this.props.getUsers();
-    }
-  }
-
   render() {
-    const { users, account, isFetching } = this.props;
+    const { users, account, match } = this.props;
     return (
       <div>
         <h2>
           <Translate contentKey="userManagement.home.title">Users</Translate>
-          <button type="button" onClick={this.getUserList} className="btn btn-primary float-right jh-create-entity" disabled={isFetching}>
+          <Link to={`${match.url}/new`} className="btn btn-primary float-right jh-create-entity">
             <FaPlus /> <Translate contentKey="userManagement.home.createLabel" />
-          </button>
+          </Link>
         </h2>
         <div className="table-responsive">
           <table className="table table-striped">
@@ -59,7 +54,14 @@ export class UserManagement extends React.Component<IUserManagementProps, undefi
               {
               users.map((user, i) => (
                 <tr key={`user-${i}`}>
-                  <td><a>{user.id}</a></td>
+                  <td>
+                    <Button
+                      tag={Link} to={`${match.url}/${user.login}`}
+                      color="link" size="sm"
+                    >
+                      {user.id}
+                    </Button>
+                  </td>
                   <td>{user.login}</td>
                   <td>{user.email}</td>
                   <td>
@@ -87,24 +89,24 @@ export class UserManagement extends React.Component<IUserManagementProps, undefi
                   <td>{user.lastModifiedDate}</td>
                   <td className="text-right">
                     <div className="btn-group flex-btn-group-container">
-                      <button
-                        type="submit"
-                        className="btn btn-info btn-sm"
+                      <Button
+                        tag={Link} to={`${match.url}/${user.login}`}
+                        color="info" size="sm"
                       >
                         <FaEye/> <span className="d-none d-md-inline" ><Translate contentKey="entity.action.view" /></span>
-                      </button>
-                      <button
-                        type="submit"
-                        className="btn btn-primary btn-sm"
+                      </Button>
+                      <Button
+                        tag={Link} to={`${match.url}/${user.id}/edit`}
+                        color="primary" size="sm"
                       >
                         <FaPencil/> <span className="d-none d-md-inline"><Translate contentKey="entity.action.edit" /></span>
-                      </button>
-                      <button
-                        type="submit"
-                        className="btn btn-danger btn-sm" disabled={account.login === user.login}
+                      </Button>
+                      <Button
+                        tag={Link} to={`${match.url}/${user.id}/delete`}
+                        color="danger" size="sm" disabled={account.login === user.login}
                       >
                         <FaTrash/> <span className="d-none d-md-inline"><Translate contentKey="entity.action.delete" /></span>
-                      </button>
+                      </Button>
                     </div>
                   </td>
                 </tr>
