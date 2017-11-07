@@ -14,6 +14,7 @@ export interface IUserManagementProps {
   account: any;
   match: any;
 }
+
 export class UserManagement extends React.Component<IUserManagementProps, undefined> {
 
   constructor(props) {
@@ -122,8 +123,7 @@ export class UserManagement extends React.Component<IUserManagementProps, undefi
 
 const mapStateToProps = storeState => ({
   users: storeState.userManagement.users,
-  account: storeState.authentication.account,
-  isFetching: storeState.userManagement.isFetching
+  account: storeState.authentication.account
 });
 
 const mapDispatchToProps = { getUsers };
