@@ -80,8 +80,7 @@ export class UserManagementDetail extends React.Component<IUserManagementDetailP
 }
 
 const mapStateToProps = storeState => ({
-  user: storeState.userManagement.user,
-  isFetching: storeState.userManagement.isFetching
+  user: storeState.userManagement.user
 });
 
 const mapDispatchToProps = { getUser };
