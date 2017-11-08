@@ -1,6 +1,6 @@
 package com.mycompany.myapp.repository;
 
-import com.mycompany.myapp.JhipsterApp;
+import com.mycompany.myapp.DevoxxApp;
 import com.mycompany.myapp.config.Constants;
 import com.mycompany.myapp.config.audit.AuditEventConverter;
 import com.mycompany.myapp.domain.PersistentAuditEvent;
@@ -32,7 +32,7 @@ import static com.mycompany.myapp.repository.CustomAuditEventRepository.EVENT_DA
  * @see CustomAuditEventRepository
  */
 @RunWith(SpringRunner.class)
-@SpringBootTest(classes = JhipsterApp.class)
+@SpringBootTest(classes = DevoxxApp.class)
 @Transactional
 public class CustomAuditEventRepositoryIntTest {
 

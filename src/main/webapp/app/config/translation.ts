@@ -11,8 +11,7 @@ const mergeTranslations = requireContext => requireContext.keys().reduce(
 
 // tslint:disable:object-literal-key-quotes
 const translations = {
-   'en': mergeTranslations(require.context('../../i18n/en', false, /.json$/)),
-   'fr': mergeTranslations(require.context('../../i18n/fr', false, /.json$/))
+   'en': mergeTranslations(require.context('../../i18n/en', false, /.json$/))
 };
 // tslint:enable
 

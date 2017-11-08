@@ -16,14 +16,14 @@
 
 spring:
     application:
-        name: jhipster
+        name: devoxx
     jackson:
         serialization.write_dates_as_timestamps: false
     cache:
         type: none
     datasource:
         type: com.zaxxer.hikari.HikariDataSource
-        url: jdbc:h2:mem:jhipster;DB_CLOSE_DELAY=-1
+        url: jdbc:h2:mem:devoxx;DB_CLOSE_DELAY=-1
         name:
         username:
         password:
@@ -92,7 +92,7 @@ jhipster:
     security:
         authentication:
             jwt:
-                secret: 373724ecc48debc2686e4bbc6de151f52c19b725
+                secret: 6e637d23f218a8170bffab056c78d7a205221c76
                 # Token is valid 24 hours
                 token-validity-in-seconds: 86400
     metrics: # DropWizard Metrics configuration, used by MetricsConfiguration

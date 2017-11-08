@@ -90,7 +90,7 @@ export class Header extends React.Component<IHeaderProps, { menuOpen: boolean }>
           <NavbarToggler onClick={this.toggleMenu} />
           <NavbarBrand tag={Link} to="/" className="brand-logo">
             <BrandIcon />
-            <span className="brand-title"><Translate contentKey="global.title">Jhipster</Translate></span>
+            <span className="brand-title"><Translate contentKey="global.title">Devoxx</Translate></span>
             <span className="navbar-version">{appConfig.version}</span>
           </NavbarBrand>
           <Collapse isOpen={this.state.menuOpen} navbar>

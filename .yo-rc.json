@@ -5,7 +5,7 @@
       "nativeLanguage": "en"
     },
     "jhipsterVersion": "4.10.2",
-    "baseName": "jhipster",
+    "baseName": "devoxx",
     "packageName": "com.mycompany.myapp",
     "packageFolder": "com/mycompany/myapp",
     "serverPort": "8080",
@@ -22,7 +22,7 @@
     "buildTool": "maven",
     "enableSocialSignIn": false,
     "enableSwaggerCodegen": false,
-    "jwtSecretKey": "373724ecc48debc2686e4bbc6de151f52c19b725",
+    "jwtSecretKey": "6e637d23f218a8170bffab056c78d7a205221c76",
     "clientFramework": "react",
     "useSass": false,
     "clientPackageManager": "yarn",
@@ -32,8 +32,7 @@
     "enableTranslation": true,
     "nativeLanguage": "en",
     "languages": [
-      "en",
-      "fr"
+      "en"
     ]
   }
 }

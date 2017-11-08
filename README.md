@@ -1,4 +1,4 @@
-# jhipster
+# devoxx
 This application was generated using JHipster 4.10.2, you can find documentation and help at [http://www.jhipster.tech/documentation-archive/v4.10.2](http://www.jhipster.tech/documentation-archive/v4.10.2).
 
 ## Development
@@ -93,7 +93,7 @@ will generate few files:
 
 ## Building for production
 
-To optimize the jhipster application for production, run:
+To optimize the devoxx application for production, run:
 
     ./mvnw -Pprod clean package
 
